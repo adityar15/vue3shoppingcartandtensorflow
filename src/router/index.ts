@@ -22,6 +22,11 @@ const routes : Array<RouteRecordRaw> = [
         path: '/webcam',
         name: 'Webcam',
         component: ()=>import(/*webpackChunkName:"webcam"*/ '../pages/Webcam.vue')
+    },
+    {
+        path: '/editabletable',
+        name: 'EditableTable',
+        component: ()=>import(/*webpackChunkName:"editabletable"*/ '../pages/EditableTable.vue')
     }
 ] 
 
