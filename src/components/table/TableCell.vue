@@ -16,7 +16,7 @@ import { EmittedValue } from "../../types/interfaces";
 
 const props = defineProps<{
   cellvalue: string | number,
-  cellkey: string
+  cellkey: "name" | "contact" | "email"
 }>();
 
 const inputElement = ref<HTMLInputElement>()

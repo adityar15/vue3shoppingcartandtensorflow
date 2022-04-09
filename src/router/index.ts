@@ -27,6 +27,11 @@ const routes : Array<RouteRecordRaw> = [
         path: '/editabletable',
         name: 'EditableTable',
         component: ()=>import(/*webpackChunkName:"editabletable"*/ '../pages/EditableTable.vue')
+    },
+    {
+        path: '/inputbutnotinput',
+        name: 'EditableInput',
+        component: ()=>import(/*webpackChunkName:"editableinput"*/ '../pages/EditableInput.vue')
     }
 ] 
 
