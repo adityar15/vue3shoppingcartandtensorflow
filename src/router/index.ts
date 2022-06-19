@@ -32,6 +32,11 @@ const routes : Array<RouteRecordRaw> = [
         path: '/inputbutnotinput',
         name: 'EditableInput',
         component: ()=>import(/*webpackChunkName:"editableinput"*/ '../pages/EditableInput.vue')
+    },
+    {
+        path: '/filedrop',
+        name: 'FileDrop',
+        component: ()=>import(/*webpackChunkName:"filedroppage"*/'../pages/FileDropPage.vue')
     }
 ] 
 

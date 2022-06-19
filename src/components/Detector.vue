@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-auto md:w-[640px] relative">
+  <div class="w-full h-auto md:w-[840px] relative">
     <canvas
       ref="drawingBoard"
       class="absolute w-full h-full bg-transparent top-0 left-0 mx-auto"
@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineAsyncComponent, onMounted, ref } from "vue";
+import { defineAsyncComponent, onMounted, ref, watch } from "vue";
 import * as cocoSSD from "@tensorflow-models/coco-ssd";
 import "@tensorflow/tfjs-backend-cpu";
 import "@tensorflow/tfjs-backend-webgl";
@@ -35,9 +35,6 @@ const Selector = defineAsyncComponent(
   () => import(/*webpackChunkName:selector*/ "../components/Selector.vue")
 );
 
-const Button = defineAsyncComponent(
-  () => import(/*webpackChunkName:button*/ "../components/Button.vue")
-);
 
 const video = ref<HTMLVideoElement>();
 const devices = ref<MediaDeviceInfo[]>([]);
@@ -51,6 +48,9 @@ onMounted(async () => {
     startStreaming();
   }
 });
+
+
+watch(camera, () => startStreaming())
 
 function startStreaming(): void {
   navigator.mediaDevices
@@ -69,7 +69,9 @@ function startStreaming(): void {
 }
 
 async function detectObjects(): Promise<void> {
-    console.log("detecting")
+
+  console.log("detecting ...")
+
   const model = await cocoSSD.load();
   const predictions: cocoSSD.DetectedObject[] = await model.detect(
     video.value as HTMLVideoElement
@@ -101,6 +103,6 @@ async function detectObjects(): Promise<void> {
       context.stroke();
     }
   });
-  console.log(predictions);
+  
 }
 </script>
