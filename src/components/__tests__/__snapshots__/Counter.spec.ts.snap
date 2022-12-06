@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`Counter > should render correctly 1`] = `
+"<div>
+  <p class=\\"text-center my-2 text-gray-700\\">Current count: 0</p><button data-type=\\"increment\\" class=\\"px-4 py-2 bg-emerald-500 text-gray-100 font-semibold rounded-md\\">Increment</button><button data-type=\\"decrement\\" class=\\"px-4 py-2 bg-rose-500 text-gray-50 font-semibold rounded-md ml-5\\">Decrement</button>
+</div>"
+`;

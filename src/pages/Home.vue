@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="flex justify-between items-center">
+  <div class="grid place-items-center h-96">
+    <!-- <div class="flex justify-between items-center">
       <Title>Products</Title>
       <router-link to="/cart"> <Button>Cart</Button> </router-link>
     </div>
@@ -13,21 +13,29 @@
         :key="product.id"
         :product="product"
       />
-    </div>
+    </div> -->
+
+  <Counter />
+
   </div>
 </template>
 <script setup lang="ts">
-import { defineAsyncComponent } from "@vue/runtime-core";
-import products from "../../products.json";
-const Title = defineAsyncComponent(
-  () => import(/*webpackChunkName:"title"*/ "../components/Title.vue")
-);
-const ProductCard = defineAsyncComponent(
-  () =>
-    import(/*webpackChunkName:"productcard"*/ "../components/ProductCard.vue")
+import { defineAsyncComponent } from "vue";
+
+const Counter = defineAsyncComponent(
+  () => import(/*webpackChunkName:"counter"*/ "../components/Counter.vue")
 );
 
-const Button = defineAsyncComponent(
-  () => import(/*webpackChunkName:"button"*/ "../components/Button.vue")
-);
+// import products from "../../products.json";
+// const Title = defineAsyncComponent(
+//   () => import(/*webpackChunkName:"title"*/ "../components/Title.vue")
+// );
+// const ProductCard = defineAsyncComponent(
+//   () =>
+//     import(/*webpackChunkName:"productcard"*/ "../components/ProductCard.vue")
+// );
+
+// const Button = defineAsyncComponent(
+//   () => import(/*webpackChunkName:"button"*/ "../components/Button.vue")
+// );
 </script>
